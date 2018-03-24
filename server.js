@@ -9,7 +9,7 @@ store.accounts = [];
 let app = express();
 app.use(bodyParser.json());
 app.use(logger('dev'));
-app.use(errorHandler);
+app.use(errorHandler());
 
 
 app.get('/accounts', (req, res) => {
@@ -32,4 +32,5 @@ app.delete('/accounts/:id', (req, res) => {
     store.accounts.splice(req.params.id, 1);
     res.status(204).send();
 });
+
 app.listen(3000);
